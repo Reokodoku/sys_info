@@ -45,7 +45,7 @@ impl OsRelease {
         let mut s: Self = Default::default();
 
         for line in read_to_string(path)?.lines() {
-            let splitted: Vec<&str> = line.split("=").collect();
+            let splitted: Vec<&str> = line.split('=').collect();
 
             // Check the key and set the value
             match splitted[0] {
@@ -53,7 +53,7 @@ impl OsRelease {
                 "ID" => s.id = Some(splitted[1].to_string()),
                 "ID_LIKE" => {
                     let mut ids = Vec::new();
-                    for id in splitted[1].split(" ") {
+                    for id in splitted[1].split(' ') {
                         ids.push(id.to_string());
                     }
                     s.id_like = Some(ids);
@@ -95,7 +95,7 @@ impl OsRelease {
                 "CONFEXT_SCOPE" => s.confext_scope = Some(splitted[1].to_string()),
                 "PORTABLE_PREFIXES" => {
                     let mut prefixes = Vec::new();
-                    for prefix in splitted[1].split(" ") {
+                    for prefix in splitted[1].split(' ') {
                         prefixes.push(prefix.to_string());
                     }
                     s.portable_prefixes = Some(prefixes);
@@ -252,7 +252,7 @@ impl OsRelease {
     /// Returns pretty_name if it isn't None, otherwise returns name (or None if name isn't
     /// Some(...))
     pub fn get_name(&self) -> &Option<String> {
-        if !self.pretty_name.is_none() {
+        if self.pretty_name.is_some() {
             &self.pretty_name
         } else {
             &self.name

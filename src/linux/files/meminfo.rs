@@ -15,7 +15,7 @@ impl Meminfo {
         }
 
         for line in read_to_string("/proc/meminfo")?.lines() {
-            let splitted: Vec<&str> = line.split(":").collect();
+            let splitted: Vec<&str> = line.split(':').collect();
 
             // Check the key and set the value
             match splitted[0] {

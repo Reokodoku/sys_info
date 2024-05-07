@@ -11,7 +11,7 @@ impl ProcessorEntry {
     pub fn parse(section: String) -> Self {
         let mut s: Self = Default::default();
         for line in section.lines() {
-            let splitted: Vec<&str> = line.split(":").collect();
+            let splitted: Vec<&str> = line.split(':').collect();
 
             match splitted[0].trim() {
                 "processor" => s.processor = splitted[1].trim().to_string().parse().unwrap(),
@@ -48,7 +48,7 @@ impl InformationEntry {
     pub fn parse(section: String) -> Self {
         let mut s: Self = Default::default();
         for line in section.lines() {
-            let splitted: Vec<&str> = line.split(":").collect();
+            let splitted: Vec<&str> = line.split(':').collect();
 
             match splitted[0].trim() {
                 "revision" => s.revision = splitted[1].trim().to_string(),
@@ -87,12 +87,11 @@ impl CpuEntry {
         let mut entry_type: Option<CpuEntry> = None;
 
         for line in section.lines() {
-            let splitted: Vec<&str> = line.split(":").collect();
+            let splitted: Vec<&str> = line.split(':').collect();
             match splitted[0].trim().to_lowercase().as_str() {
                 "processor" => entry_type = Some(CpuEntry::ProcessorType),
                 _ => entry_type = Some(CpuEntry::InformationType),
             };
-            break;
         }
 
         match entry_type.unwrap() {
