@@ -2,6 +2,12 @@
 name = "sys_info"
 version = "0.1.0"
 edition = "2021"
+authors = ["Reokodoku"]
+description = "Crate for getting information about the OS, CPU, etc..."
+readme = "README.md"
+license = "Apache-2.0"
+homepage = "https://github.com/Reokodoku/sys_info/"
+repository = "https://github.com/Reokodoku/sys_info/"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
